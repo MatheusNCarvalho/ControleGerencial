@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="goodlife" />
+  <setParameter name="projetoConnectionString-Web.config Connection String" value="Data Source=DRAGON\Sqlexpress;Initial Catalog=goodlife;Integrated Security=True" />
+  <setParameter name="projetoConnectionString-Deployment Connection String" value="Data Source=DRAGON\Sqlexpress;Initial Catalog=goodlife;Integrated Security=True" />
+</parameters>

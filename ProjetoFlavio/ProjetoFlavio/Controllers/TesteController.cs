@@ -17,8 +17,8 @@ namespace ProjetoFlavio.Controllers
         public ActionResult Index()
         {
 
-            DataSetImagem ds = new DataSetImagem();
-            DataSet2 d3 = new DataSet2();
+            DataSetImagem dataSetImagem = new DataSetImagem();
+            DataSet2 dataSetDadosClientes = new DataSet2();
             var id = 11;
 
             
@@ -28,12 +28,12 @@ namespace ProjetoFlavio.Controllers
 
             SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM clientes as c Join clientes_enderecos as ce on c.ClienteId = ce.EnderecoId  where ClienteId =" + id+"", conx);
             // SqlDataAdapter adp = new SqlDataAdapter("SELECT *  FROM imagens ", conx);
-             adp.Fill(d3, d3.clientes.TableName);
+             adp.Fill(dataSetDadosClientes, dataSetDadosClientes.clientes.TableName);
 
             adp.Dispose();
             //SqlDataAdapter adp3 = new SqlDataAdapter("SELECT * FROM clientes as c Join clientes_enderecos as ce on c.ClienteId = ce.EnderecoId  where ClienteId =" + id + "", conx);
              SqlDataAdapter adp3 = new SqlDataAdapter("SELECT *  FROM imagens ", conx);
-            adp3.Fill(ds, ds.imagens.TableName);
+            adp3.Fill(dataSetImagem, dataSetImagem.imagens.TableName);
             adp3.Dispose();
 
 
@@ -41,19 +41,15 @@ namespace ProjetoFlavio.Controllers
             viewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
             viewer.LocalReport.EnableExternalImages = true;
 
-            //var stringParametro = "MatheusFoda";
+          
 
-            //
-            // ReportParameter[] param = new ReportParameter[1];
-            // param[0] = new ReportParameter("teste", stringParametro);
-
-            //viewer.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("ReportParameter1", "Matheus"));
+           // viewer.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("ReportParameter1", "Matheus"));
 
 
-            viewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\Report2.rdlc";
+            viewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\teste.rdlc";
             //viewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ds.Tables[0])); ds.relatorio.Where(m => m.ClienteId == id).FirstOrDefault())
-            viewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ds.Tables[0]));
-            viewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetDados", d3.Tables[0]));
+            viewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dataSetImagem.Tables[0]));
+            viewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetDados", dataSetDadosClientes.Tables[0]));
             //viewer.ReportRefresh(); 
 
             viewer.SizeToReportContent = true;

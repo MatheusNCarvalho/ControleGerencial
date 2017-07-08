@@ -14,5 +14,12 @@ namespace ProjetoFlavio
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+        protected void Application_Error()
+        {
+            Server.ClearError();
+            Response.Redirect("/home/error");
+        }
+
     }
 }

@@ -26,7 +26,7 @@ namespace ProjetoFlavio.DAO
         public IList<Cliente> Lista()
         {
             
-                return contexto.Clientes.ToList();
+                return contexto.Clientes.Where(m => m.Status == true).ToList();
             
         }
 

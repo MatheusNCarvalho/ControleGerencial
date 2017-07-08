@@ -629,13 +629,26 @@
           <Rectangle Name="Rectangle1">
             <KeepTogether>true</KeepTogether>
             <Top>6.53203cm</Top>
-            <Left>14.60183cm</Left>
+            <Left>13.72806cm</Left>
             <Height>4.11396cm</Height>
             <Width>5cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle2">
+            <KeepTogether>true</KeepTogether>
+            <Top>12.1412cm</Top>
+            <Left>0.94932cm</Left>
+            <Height>2.5cm</Height>
+            <Width>17.77874cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
               </Border>
             </Style>
           </Rectangle>

@@ -1183,6 +1183,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1218,6 +1219,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteEndereco.cs" />
     <Compile Include="Models\Sexo.cs" />
+    <Compile Include="Models\ViewModelClienteEndereco.cs" />
     <Compile Include="projetoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1620,6 +1622,7 @@
     <Content Include="Reports\DataSetImagem.xss">
       <DependentUpon>DataSetImagem.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

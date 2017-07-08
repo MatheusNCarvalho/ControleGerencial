@@ -8,12 +8,13 @@ using System.Web.Mvc;
 
 namespace ProjetoFlavio.Controllers
 {
-    
 
 
+    [HandleError(View = "../Error")]
     public class ClientesController : Controller
     {
         private readonly ClienteDao _clienteDao = new ClienteDao();
+        private readonly ClienteEnderecoDao _clienteEnderecoDao = new ClienteEnderecoDao();
         // GET: Clientes
         public ActionResult Index()
         {
@@ -23,13 +24,31 @@ namespace ProjetoFlavio.Controllers
         [Route("clientes/novo", Name ="NovosClientes")]
         public ActionResult Novo()
         {
+
             return View();
             
         }
 
-        public ActionResult Salvar(Cliente cliente)
+        [HttpPost]
+        [ValidateAntiForgeryToken]        
+        public ActionResult Salvar(ViewModelClienteEndereco viewCadastrado)
         {
-            return RedirectToAction("Index");
+            try {
+                //ClientesId = cliente.ClienteId
+                if (ModelState.IsValid)
+                {
+                    _clienteDao.Salva(viewCadastrado.Clientes);
+                    viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
+                    _clienteEnderecoDao.Salva(viewCadastrado.ClientesEnderecos);
+                }
+
+                return View("Novo", viewCadastrado);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Cadastrado", "Salvar"));
+            }
+            
         }
 
         [Route("clientes", Name ="ListarClientes")]
