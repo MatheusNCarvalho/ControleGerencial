@@ -258,10 +258,12 @@
     <Content Include="Content\js\google-code-prettify\styles\index.html" />
     <Content Include="Content\js\google-code-prettify\styles\sons-of-obsidian.css" />
     <Content Include="Content\js\google-code-prettify\styles\sunburst.css" />
+    <Content Include="Content\js\index.js" />
     <Content Include="Content\js\ion.rangeSlider.min.js" />
     <Content Include="Content\js\jquery.hotkeys\jquery.hotkeys.js" />
     <Content Include="Content\js\jquery.inputmask.bundle.min.js" />
     <Content Include="Content\js\jquery.knob.js" />
+    <Content Include="Content\js\jquery.mask.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\jquery.tagsinput\dist\jquery.tagsinput.min.css" />
     <Content Include="Content\js\jquery.tagsinput\grunt-tasks\assets_production.js" />
@@ -270,6 +272,7 @@
     <Content Include="Content\js\jquery.tagsinput\Gruntfile.js" />
     <Content Include="Content\js\jquery.tagsinput\src\jquery.tagsinput.css" />
     <Content Include="Content\js\jquery.tagsinput\src\jquery.tagsinput.js" />
+    <Content Include="Content\js\mascaras.js" />
     <Content Include="Content\js\moment.min.js" />
     <Content Include="Content\js\nprogress.js" />
     <Content Include="Content\js\nprogress\index.html" />
@@ -857,6 +860,8 @@
     <Content Include="Content\js\select2\tests\vendor\qunit-1.23.1.css" />
     <Content Include="Content\js\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\js\select2\vendor\jquery-2.1.0.js" />
+    <Content Include="Content\js\starrr.js" />
+    <Content Include="Content\js\switchery.min.js" />
     <Content Include="Content\vendors\bootstrap-daterangepicker\daterangepicker.css" />
     <Content Include="Content\vendors\bootstrap-daterangepicker\daterangepicker.js" />
     <Content Include="Content\vendors\bootstrap-daterangepicker\demo.html" />
@@ -1176,8 +1181,11 @@
     <Content Include="Content\vendors\nprogress\nprogress.js" />
     <Content Include="Content\vendors\nprogress\support\extras.css" />
     <Content Include="Content\vendors\nprogress\support\style.css" />
+    <Content Include="Content\vendors\style.css" />
     <Content Include="Global.asax" />
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Views\Erro\NaoEncontrado.cshtml" />
+    <None Include="Views\page_404.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1186,6 +1194,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TesteController.cs" />
@@ -1214,6 +1223,10 @@
     <Compile Include="Migrations\20170703233025_alterTableClientesTirandoAColunaNascimento.cs" />
     <Compile Include="Migrations\20170703233025_alterTableClientesTirandoAColunaNascimento.designer.cs">
       <DependentUpon>20170703233025_alterTableClientesTirandoAColunaNascimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170709140955_atualizarTabelas.cs" />
+    <Compile Include="Migrations\20170709140955_atualizarTabelas.designer.cs">
+      <DependentUpon>20170709140955_atualizarTabelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EntidadeContextModelSnapshot.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -1623,6 +1636,7 @@
       <DependentUpon>DataSetImagem.xsd</DependentUpon>
     </Content>
     <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Clientes\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

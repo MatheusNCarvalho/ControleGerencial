@@ -1,64 +1,6 @@
 ﻿@model ProjetoFlavio.Models.ViewModelClienteEndereco
 
-<style>
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 30px;
-    }
 
-        .switch input {
-            display: none;
-        }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-    input:checked + .slider {
-        background-color: #2196F3;
-    }
-
-    input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-        border-radius: 34px;
-    }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-</style>
 
 
 <div class="page-title">
@@ -90,9 +32,11 @@
             <div class="x_content">
                 <br />
 
-                @using (Html.BeginForm("Salvar", "Clientes", FormMethod.Post, new { @class = "form-horizontal form-label-left", id = "demo-form2" }))
+                @using (Html.BeginRouteForm("SalvarEditar", FormMethod.Post, new { @class = "form-horizontal form-label-left", id = "demo-form2" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Clientes.ClienteId);
+                    @Html.HiddenFor(model => model.ClientesEnderecos.EnderecoId);
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Nome">
                             Nome Completo <span class="required">*</span>
@@ -104,37 +48,28 @@
 
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >CPF</label>
-                        <div class="col-md-1 col-sm-1 col-xs-12">
-                            <label  class="switch">
-                                <input id="chekbokCN" type="checkbox">
-                                <div id="teste" class="slider round"></div>
-                            </label>
-                            </div>  <label class="control-label " >CNPJ</label>
-
-                        </div>
+                   
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="CpfCnpj">
-                               
+                                CPF/CNPJ
                             </label>
-                            <div  class="col-md-3 col-sm-6 col-xs-12">
-                                <div id="cpfCnpj"></div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.Clientes.CpfCnpj, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "CPF", disabled= "disabled" } })
                                 @Html.ValidationMessageFor(model => model.Clientes.CpfCnpj, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Clientes.CpfCnpj);
                             </div>
                         </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
-                                    Email <span style="color: red" class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Html.EditorFor(model => model.Clientes.Email, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "Email" } })
-                                    @Html.ValidationMessageFor(model => model.Clientes.Email, "", new { @class = "text-danger" })
-                                </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
+                                Email <span style="color: red" class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.Clientes.Email, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "Email" } })
+                                @Html.ValidationMessageFor(model => model.Clientes.Email, "", new { @class = "text-danger" })
                             </div>
+                        </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular">
@@ -188,7 +123,7 @@
 
                                 <label for="Cidade" class="control-label col-md-1 col-sm-3 col-xs-12">Cidade</label>
                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                    @Html.EditorFor(model => model.ClientesEnderecos.Cidade, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "Cidade", data_tipo="cpf" } })
+                                    @Html.EditorFor(model => model.ClientesEnderecos.Cidade, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "Cidade", data_tipo = "cpf" } })
                                     @Html.ValidationMessageFor(model => model.ClientesEnderecos.Cidade, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -221,24 +156,5 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 
-    <script>
-        $(document).ready(function () {
-            $("#teste").click(function () {
-                // var t = $("#chekbokCN");
-                //alert(t);
-                if ($("#chekbokCN").is(":checked") == true) {
-                    //alert("CPF");//CNPJ
-                    $("#cpfCnpj").html('@Html.EditorFor(model => model.Clientes.CpfCnpj, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "CPF", data_tipo = "cpf2"} })');
-
-                } else {
-                     $("#cpfCnpj").html('@Html.EditorFor(model => model.Clientes.CpfCnpj, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "CNPJ", data_tipo = "cnpj" } })');
-                }
-            });
-    });
-        
-</script>
-<script src="~/Content/js/jquery.mask.min.js"></script>
-<script src="~/Content/js/mascaras.js"></script>
 

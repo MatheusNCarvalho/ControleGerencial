@@ -14,12 +14,17 @@ namespace ProjetoFlavio.Models
         public int EnderecoId { get; set; }
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
+        [Required]
         public string Estado { get; set; }
-        public string Cidade { get; set; }
-        public string Cep { get; set; }
 
+        [Required]
+        public string Cidade { get; set; }
+        [Required]
+        public string Cep { get; set; }
+        [Required]
         public int ClientesId { get; set; }
-       // public virtual Cliente Clientes { get; set; }
+
+        public virtual Cliente Clientes { get; set; }
         
     }
 }

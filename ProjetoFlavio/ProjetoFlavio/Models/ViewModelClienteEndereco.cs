@@ -10,6 +10,20 @@ namespace ProjetoFlavio.Models
 {
     public class ViewModelClienteEndereco
     {
+
+        public ViewModelClienteEndereco( ClienteEndereco ClienteEndereco)
+        {
+            this.Clientes = ClienteEndereco.Clientes;
+            this.ClientesEnderecos = ClienteEndereco;
+        }
+
+        public ViewModelClienteEndereco()
+        {
+            this.Clientes = Clientes;
+            this.ClientesEnderecos = ClientesEnderecos;
+        }
+
+
         public Cliente Clientes { get; set; }
         public ClienteEndereco ClientesEnderecos { get; set; }
         

@@ -31,7 +31,7 @@ namespace ProjetoFlavio.Models
         [Required]
         public string Celular { get; set; }
 
-        public virtual ClienteEndereco Endereco {get;set;}
+       
 
 
     }

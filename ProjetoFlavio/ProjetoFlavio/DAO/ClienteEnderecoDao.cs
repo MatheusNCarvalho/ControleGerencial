@@ -1,4 +1,5 @@
-﻿using ProjetoFlavio.Models;
+﻿using Microsoft.Data.Entity;
+using ProjetoFlavio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,17 @@ namespace ProjetoFlavio.DAO
             contexto.ClientesEnderecos.Add(produto);
             contexto.SaveChanges();
             contexto.Dispose();
+        }
+
+        public void Atualiza(ClienteEndereco endereco)
+        {
+            contexto.Entry(endereco).State = EntityState.Modified;            
+            contexto.SaveChanges();
+        }
+
+        public ClienteEndereco BuscaPorClienteEndereco(int id)
+        {
+            return contexto.ClientesEnderecos.Include(c => c.Clientes).Where(ci => ci.Clientes.Status == true).First(endereco => endereco.ClientesId == id);
         }
 
     }

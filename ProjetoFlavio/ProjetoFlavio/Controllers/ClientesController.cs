@@ -3,6 +3,7 @@ using ProjetoFlavio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,10 +17,7 @@ namespace ProjetoFlavio.Controllers
         private readonly ClienteDao _clienteDao = new ClienteDao();
         private readonly ClienteEnderecoDao _clienteEnderecoDao = new ClienteEnderecoDao();
         // GET: Clientes
-        public ActionResult Index()
-        {
-            return View();
-        }
+      
 
         [Route("clientes/novo", Name ="NovosClientes")]
         public ActionResult Novo()
@@ -34,15 +32,21 @@ namespace ProjetoFlavio.Controllers
         public ActionResult Salvar(ViewModelClienteEndereco viewCadastrado)
         {
             try {
-                //ClientesId = cliente.ClienteId
+                
                 if (ModelState.IsValid)
                 {
                     _clienteDao.Salva(viewCadastrado.Clientes);
                     viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
                     _clienteEnderecoDao.Salva(viewCadastrado.ClientesEnderecos);
+
+                    return RedirectToAction("Listar");
+                }
+                else
+                {
+                    return View("Novo", viewCadastrado);
                 }
 
-                return View("Novo", viewCadastrado);
+                
             }
             catch (Exception ex)
             {
@@ -57,5 +61,51 @@ namespace ProjetoFlavio.Controllers
             var clientes = _clienteDao.Lista();
             return View(clientes);
         }
+
+
+        [Route("clientes/{id}", Name ="EditarClientes")]
+        public ActionResult Editar(int id)
+        {
+          
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var retornoDaConsulta  = _clienteEnderecoDao.BuscaPorClienteEndereco(id);
+
+            if(retornoDaConsulta == null)
+            {
+                return RedirectToAction("NaoEncontrado", "Erro");
+            }
+            else
+            {
+                ViewModelClienteEndereco viewModelClienteEndereco = new ViewModelClienteEndereco(_clienteEnderecoDao.BuscaPorClienteEndereco(id));
+                return View("Editar", viewModelClienteEndereco);
+            }           
+
+        }
+
+        [Route("Salvar",Name ="SalvarEditar")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarSalvar(ViewModelClienteEndereco viewCadastrado)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                _clienteDao.Atualiza(viewCadastrado.Clientes);
+                 viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
+                _clienteEnderecoDao.Atualiza(viewCadastrado.ClientesEnderecos);
+
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                return View("Editar", viewCadastrado);
+            }
+
+        }
+
+
     }
 }

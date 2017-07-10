@@ -19,8 +19,15 @@ namespace ProjetoFlavio.DAO
         {
             //posso fazer regra de negocio
             contexto.Clientes.Add(cliente);
+          //  contexto.Entry(cliente).State = Microsoft.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             contexto.Dispose();
+        }
+
+        public void Atualiza(Cliente cliente)
+        {
+            contexto.Entry(cliente).State = Microsoft.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
         }
 
         public IList<Cliente> Lista()
@@ -38,6 +45,7 @@ namespace ProjetoFlavio.DAO
                     .FirstOrDefault();
         }
 
+      
 
     }
 }
