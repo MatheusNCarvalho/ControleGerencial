@@ -106,6 +106,14 @@ namespace ProjetoFlavio.Controllers
 
         }
 
+        [Route("busca/{id}", Name ="busca")]
+        public JsonResult BuscaCliente(int id)
+        {
+             var retornoPesquisa=   _clienteEnderecoDao.BuscaPorClienteEndereco(id);
+
+            return Json(retornoPesquisa, JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

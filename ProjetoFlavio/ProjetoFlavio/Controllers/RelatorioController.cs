@@ -27,10 +27,8 @@ namespace ProjetoFlavio.Controllers
 
         public ActionResult GeraLaudo()
         {
-        
 
-
-
+            ViewBag.ListaClientes = _clienteDao.Lista();
             return View();
         }
         

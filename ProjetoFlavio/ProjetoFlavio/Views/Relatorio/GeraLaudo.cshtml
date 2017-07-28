@@ -1,5 +1,206 @@
-﻿@using ReportViewerForMvc;
+﻿
+
+@model ProjetoFlavio.Models.ViewModelClienteEndereco
+
+<style>
+    .teste {
+        width: 1027px;
+        height: 249px;
+        border: thin solid;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+        color: black;
+    }
+    .div_produtos {
+        display: block;
+        float: left;
+        width: 300px;
+        padding-left: 8px;
+    } 
+
+    .div_direita{ 
+
+        display: block; 
+        float: left; 
+        width: 300px;
+       
+
+
+    }
+</style>
 
 
 
-@Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer);
+<div class="page-title">
+    <div class="title_left">
+        <h3>Gera Laudo</h3>
+    </div>
+
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Dados do Laudo <small>different form elements</small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+
+                @using (Html.BeginForm("Salvar", "Clientes", FormMethod.Post, new { @class = "form-horizontal form-label-left", id = "demo-form2" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <label class="control-label  col-sm-2 col-xs-12">Selecione o Cliente</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select id="listaClientes" class="form-control">
+                                @foreach (var c in ViewBag.ListaClientes)
+                                {
+                                    <option value="@c.ClienteId">@c.Nome</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <hr />
+                    <br />
+                    <br />
+                    <div id="laudo">
+                        <img class="teste" src="~/Content/img/top.png" />
+                        <br />
+                        <br />
+
+                        <div id="dadosPessoais">
+                            <table style="width:100%">
+                                <tr>
+                                    <td colspan="3">Cliente: </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">End:</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Bairro: </td>
+                                    <td>Cep: </td>
+                                    <td>    </td>
+                                </tr>
+                                <tr>
+                                    <td>CNPJ: </td>
+                                    <td></td>
+                                    <td>TEL:    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                       <p></p>
+                        <div class="div_produtos">
+                           <label> LAUDO TÉCNICO</label>
+                            <br />
+                          <label> Produtos Usados:</label>
+                            <br />
+                            <label>Produto 1............................... <input type="checkbox"/></label><br/>
+                            <label>Produto 2............................... <input type="checkbox"/></label><br />
+                            <label>Produto 3...............................<input type="checkbox"/></label><br />
+                            <label>Produto 4............................... <input type="checkbox"/></label><br />
+                            <label>Produto 5................................ <input type="checkbox"/></label><br />
+                            <label>Produto 6................................ <input type="checkbox"/></label><br />
+                            <label>Produto 7............................... <input type="checkbox"/></label><br />
+                            <label>Produto 8................................ <input type="checkbox"/></label>
+                            &nbsp;&nbsp;<p style="text-align: center"> TEL. PARA EMERGÊNCIA (11) 5012-5211 / 5011-5111 OU 0800-148110</p>
+                            <p  style="text-align: center"> INSETICIDAS: ANTIDOTOS, TRATAMENTO SINTOMPATICO E HISTAMINICOS.</p>
+                        </div>
+                        <div id="produtosUsados" style="border: 2px solid; text-align: center" class="div_direita">
+                            Processos Utilizados<br/>
+                            <label><input type="checkbox" /> Em liquido</label><br/>
+                            <label><input type="checkbox" /> Armadilha</label><br />
+                            <label style="padding-right: 41px;"><input type="checkbox" /> Isca</label><br />
+                            <label style="padding-right: 45px;"><input type="checkbox" /> Gel</label><br />
+                            <label style="padding-right: 50px;"><input type="checkbox" /> Po</label>
+                            <br/><br /><br /><br /><br />
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
+<script>
+
+    $('#listaClientes').on('change', function () {
+        //texto += $(this).text();
+        //console.log(texto);
+        alert(this.value);
+        buscaClienteEndereco(this.value);
+    });
+
+    function buscaClienteEndereco(clienteId) {
+
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/busca/" + clienteId,
+            success: function (dados) {
+                console.log(dados);
+                console.log(dados.Clientes.Nome, "este");
+                $("#dadosPessoais").html("  <table style='width:100%'>" +
+                    " <tr>" +
+                    "<td colspan='3'>Cliente: " + dados.Clientes.Nome + "</td>" +
+                    " </tr>" +
+                    "<tr>" +
+                    " <td colspan='3'>End:" + dados.Logradouro + " </td>" +
+                    " </tr>" +
+                    " <tr>" +
+                    " <td>Bairro: " + dados.Bairro + "</td>" +
+                    "  <td>Cep: 75650</td>" +
+                    "<td>    </td>" +
+                    "</tr>" +
+                    " <tr>" +
+                    " <td>CNPJ: " + dados.Clientes.CpfCnpj + "</td>" +
+                    " <td></td>" +
+                    " <td>TEL: " + dados.Clientes.Celular + "   </td>" +
+                    " </tr>" +
+                    " </table>");
+            }
+
+        });
+    }
+
+    function adiciona(resposta) {
+        alert(reposta);
+    }
+
+</script>
+<script src="~/Content/js/jquery.mask.min.js"></script>
+<script src="~/Content/js/mascaras.js"></script>
+
