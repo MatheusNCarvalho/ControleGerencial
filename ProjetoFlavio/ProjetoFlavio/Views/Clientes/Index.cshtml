@@ -1,18 +1,61 @@
-﻿@model ProjetoFlavio.Models.ViewModelClienteEndereco
-@{
-    Layout = null;
-}
+﻿@model IList<ProjetoFlavio.Models.Cliente>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Novo</title>
-</head>
-<body>
-    <div> 
+<div class="clearfix"></div>
 
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Lista de Clientes</h2>           
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">         
+
+            <div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead>
+                        <tr class="headings">
+                           
+                            <th class="column-title"># </th>
+                            <th class="column-title">Nome</th>
+                            <th class="column-title">CPF/CNPJ</th>
+                            <th class="column-title">Email</th>
+                            <th class="column-title">Celular</th>
+                           
+                            <th >
+                                
+                            </th>
+                           
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var clientes in Model)
+                        {
+                            <tr class="even pointer">
+                                <td class=" ">@clientes.ClienteId</td>
+                                <td class=" ">@clientes.Nome</td>
+                                <td class=" ">@clientes.CpfCnpj</td>
+                                <td class=" ">@clientes.Email</td>
+                                <td class=" ">@clientes.Celular</td>
+                                <td ><a href="/clientes/@clientes.ClienteId" style="color: black">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                
+                                    <a href="/clientes/@clientes.ClienteId" style="color: red">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
     </div>
-</body>
-</html>
+</div>

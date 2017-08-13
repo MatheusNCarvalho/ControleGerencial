@@ -33,6 +33,6 @@ namespace ProjetoFlavio.Models
 
        
 
-
+        //[Compare("Nomde do Campo",ErrorMessage="")]
     }
 }

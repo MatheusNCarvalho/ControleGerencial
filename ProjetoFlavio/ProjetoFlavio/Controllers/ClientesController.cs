@@ -2,6 +2,7 @@
 using ProjetoFlavio.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,101 +18,120 @@ namespace ProjetoFlavio.Controllers
         private readonly ClienteDao _clienteDao = new ClienteDao();
         private readonly ClienteEnderecoDao _clienteEnderecoDao = new ClienteEnderecoDao();
         // GET: Clientes
-      
 
-        [Route("clientes/novo", Name ="NovosClientes")]
-        public ActionResult Novo()
+
+        /// [Route("clientes/novo", Name = "NovosClientes")]
+        public ActionResult Index()
         {
 
-            return View();
-            
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]        
-        public ActionResult Salvar(ViewModelClienteEndereco viewCadastrado)
-        {
-            try {
-                
-                if (ModelState.IsValid)
-                {
-                    _clienteDao.Salva(viewCadastrado.Clientes);
-                    viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
-                    _clienteEnderecoDao.Salva(viewCadastrado.ClientesEnderecos);
-
-                    return RedirectToAction("Listar");
-                }
-                else
-                {
-                    return View("Novo", viewCadastrado);
-                }
-
-                
-            }
-            catch (Exception ex)
-            {
-                return View("Error", new HandleErrorInfo(ex, "Cadastrado", "Salvar"));
-            }
-            
-        }
-
-        [Route("clientes", Name ="ListarClientes")]
-        public ActionResult Listar()
-        {
             var clientes = _clienteDao.Lista();
             return View(clientes);
+
         }
 
 
-        [Route("clientes/{id}", Name ="EditarClientes")]
-        public ActionResult Editar(int id)
+        public ActionResult Adicionar()
         {
-          
-            if(id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var retornoDaConsulta  = _clienteEnderecoDao.BuscaPorClienteEndereco(id);
-
-            if(retornoDaConsulta == null)
-            {
-                return RedirectToAction("NaoEncontrado", "Erro");
-            }
-            else
-            {
-                ViewModelClienteEndereco viewModelClienteEndereco = new ViewModelClienteEndereco(_clienteEnderecoDao.BuscaPorClienteEndereco(id));
-                return View("Editar", viewModelClienteEndereco);
-            }           
-
+            return View(new ViewModelClienteEndereco());
         }
 
-        [Route("Salvar",Name ="SalvarEditar")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditarSalvar(ViewModelClienteEndereco viewCadastrado)
+        public ActionResult Adicionar(ViewModelClienteEndereco viewCadastrado)
         {
-            if (ModelState.IsValid)
+            try
             {
-                
-                _clienteDao.Atualiza(viewCadastrado.Clientes);
-                 viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
-                _clienteEnderecoDao.Atualiza(viewCadastrado.ClientesEnderecos);
 
-                return RedirectToAction("Listar");
+                if (!ModelState.IsValid)
+                {
+                    return View(viewCadastrado);
+                }
+
+                _clienteDao.Salva(viewCadastrado.Clientes);
+                viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
+                _clienteEnderecoDao.Salva(viewCadastrado.ClientesEnderecos);
+
+                return RedirectToAction("Index");
+
+
             }
-            else
+            catch (Exception e)
             {
-                return View("Editar", viewCadastrado);
+                TempData.Add("Erro", e.Message);
+                return View(viewCadastrado);
             }
 
         }
 
-        [Route("busca/{id}", Name ="busca")]
+
+
+        // [Route("clientes/{id}", Name = "EditarClientes")]
+        public ActionResult Detalhes(int id)
+        {
+
+
+            try
+            {
+                ViewModelClienteEndereco viewModelClienteEndereco = new ViewModelClienteEndereco(_clienteEnderecoDao.BuscaPorClienteEndereco(id));
+                return View(viewModelClienteEndereco);
+            }
+            catch (Exception e)
+            {
+                TempData.Add("Erro", e.Message);
+                return RedirectToAction("Index");
+            }
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Detalhes(ViewModelClienteEndereco viewCadastrado)
+        {
+
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(viewCadastrado);
+                }
+
+                _clienteDao.Atualiza(viewCadastrado.Clientes);
+                viewCadastrado.ClientesEnderecos.ClientesId = viewCadastrado.Clientes.ClienteId;
+                _clienteEnderecoDao.Atualiza(viewCadastrado.ClientesEnderecos);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                TempData.Add("Erro", e.Message);
+                return View(viewCadastrado);
+            }
+
+           
+
+        }
+
+        //  [Route("busca/{id}", Name = "busca")]
         public JsonResult BuscaCliente(int id)
         {
-             var retornoPesquisa=   _clienteEnderecoDao.BuscaPorClienteEndereco(id);
+            var retornoPesquisa = _clienteEnderecoDao.BuscaPorClienteEndereco(id);
 
             return Json(retornoPesquisa, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ValidaCPFCNPJ(string cpf)
+        {
+            var teste = new Collection<string>
+            {
+                "11111111",
+                "55555555",
+                ""
+
+            };
+
+            return Json(teste.All(x => string.Equals(x, cpf, StringComparison.CurrentCultureIgnoreCase)), JsonRequestBehavior.AllowGet);
         }
 
 

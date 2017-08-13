@@ -11,9 +11,11 @@ namespace ProjetoFlavio
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapMvcAttributeRoutes();//Habilita no caso se quiser pernosalizar as rotas
+            //routes.MapMvcAttributeRoutes();//Habilita no caso se quiser pernosalizar as rotas
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            
 
             routes.MapRoute(
                 name: "Default",

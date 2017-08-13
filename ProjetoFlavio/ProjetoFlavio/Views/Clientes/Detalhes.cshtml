@@ -32,7 +32,7 @@
             <div class="x_content">
                 <br />
 
-                @using (Html.BeginRouteForm("SalvarEditar", FormMethod.Post, new { @class = "form-horizontal form-label-left", id = "demo-form2" }))
+                @using (Html.BeginForm("Detalhes","Clientes", FormMethod.Post, new { @class = "form-horizontal form-label-left", id = "demo-form2" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.Clientes.ClienteId);
@@ -57,7 +57,7 @@
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 @Html.EditorFor(model => model.Clientes.CpfCnpj, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", placeholder = "CPF", disabled= "disabled" } })
                                 @Html.ValidationMessageFor(model => model.Clientes.CpfCnpj, "", new { @class = "text-danger" })
-                                @Html.HiddenFor(model => model.Clientes.CpfCnpj);
+                                @Html.HiddenFor(model => model.Clientes.CpfCnpj)
                             </div>
                         </div>
 

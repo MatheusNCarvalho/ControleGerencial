@@ -133,6 +133,7 @@ C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bi
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\ProjetoFlavio.dll.config
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\ProjetoFlavio.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\ProjetoFlavio.pdb
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Antlr3.Runtime.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.Commands.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.Core.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.dll
@@ -156,6 +157,7 @@ C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bi
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Newtonsoft.Json.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Remotion.Linq.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\ReportViewerForMvc.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Collections.Immutable.dll
@@ -163,11 +165,14 @@ C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bi
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Interactive.Async.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Helpers.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Mvc.dll
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Optimization.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Razor.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Webpages.Deployment.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Webpages.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Webpages.Razor.dll
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\WebGrease.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.SqlServer.Types.dll
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Antlr3.Runtime.pdb
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.Commands.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\EntityFramework.Core.xml
@@ -187,10 +192,12 @@ C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bi
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.Extensions.OptionsModel.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Newtonsoft.Json.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\Remotion.Linq.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Collections.Immutable.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Interactive.Async.xml
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Optimization.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Razor.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Webpages.xml
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\System.Web.Webpages.Deployment.xml
@@ -207,6 +214,6 @@ C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bi
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\ru\Microsoft.SqlServer.Types.resources.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
-C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\obj\Debug\ProjetoFlavio.csprojResolveAssemblyReference.cache
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\obj\Debug\ProjetoFlavio.dll
 C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\obj\Debug\ProjetoFlavio.pdb
+C:\Users\kaido\Documents\GitHub\ControleGerencial\ProjetoFlavio\ProjetoFlavio\obj\Debug\ProjetoFlavio.csprojResolveAssemblyReference.cache
