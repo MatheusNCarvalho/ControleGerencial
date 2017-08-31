@@ -1,0 +1,5 @@
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Negocio\bin\Debug\GoodLife.Negocio.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Negocio\bin\Debug\GoodLife.Negocio.pdb
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Negocio\obj\Debug\GoodLife.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Negocio\obj\Debug\GoodLife.Negocio.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Negocio\obj\Debug\GoodLife.Negocio.pdb

@@ -1,0 +1,5 @@
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Domain\bin\Debug\GoodLife.Domain.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Domain\bin\Debug\GoodLife.Domain.pdb
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Domain\obj\Debug\GoodLife.Domain.csprojResolveAssemblyReference.cache
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Domain\obj\Debug\GoodLife.Domain.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Domain\obj\Debug\GoodLife.Domain.pdb

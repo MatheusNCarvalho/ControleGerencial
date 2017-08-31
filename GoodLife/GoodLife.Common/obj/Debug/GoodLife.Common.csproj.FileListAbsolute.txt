@@ -1,0 +1,5 @@
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Common\bin\Debug\GoodLife.Common.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Common\bin\Debug\GoodLife.Common.pdb
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Common\obj\Debug\GoodLife.Common.csprojResolveAssemblyReference.cache
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Common\obj\Debug\GoodLife.Common.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.Common\obj\Debug\GoodLife.Common.pdb

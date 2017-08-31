@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="projetoConnectionString-Web.config Connection String" description="projetoConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DRAGON\SQLEXPRESS; Initial Catalog=goodlife; Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\kaido\\Documents\\GitHub\\ControleGerencial\\ProjetoFlavio\\ProjetoFlavio\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='projetoConnectionString']/@connectionString" />
-  </parameter>
-</parameters>

@@ -1,0 +1,15 @@
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.csprojResolveAssemblyReference.cache
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.Migrations.Cidade.resources
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.Migrations.adicionadoRelacaoeEndereco.resources
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.csproj.GenerateResource.Cache
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\GoodLife.InfraEstrutura.Data.dll.config
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\GoodLife.InfraEstrutura.Data.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\GoodLife.InfraEstrutura.Data.pdb
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\EntityFramework.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\GoodLife.Domain.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\GoodLife.Domain.pdb
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\EntityFramework.xml
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.dll
+C:\Users\kaido\documents\visual studio 2017\Projects\GoodLife\GoodLife.InfraEstrutura.Data\obj\Debug\GoodLife.InfraEstrutura.Data.pdb
